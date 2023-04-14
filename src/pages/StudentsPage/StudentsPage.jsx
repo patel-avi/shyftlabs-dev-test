@@ -33,10 +33,10 @@ async function handleSubmit(e) {
       setError(true)
     }
 
-    function calculateAge(birthday) { // birthday is a date
+    function calculateAge(birthday) {
       birthday = new Date(birthday)
       var ageDifMs = Date.now() - birthday;
-      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+      var ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
