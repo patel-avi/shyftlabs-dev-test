@@ -22,6 +22,7 @@ function App() {
             <NavLink className="nav-link" to="/students">
               Students Page
             </NavLink>
+
             <NavLink className="nav-link" to="/courses">
               Courses Page
             </NavLink>
@@ -32,7 +33,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/students" element={<StudentsPage />} />
             <Route path="/courses" element={<CoursesPage />} />
-
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
