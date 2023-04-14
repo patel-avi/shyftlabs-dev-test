@@ -21,6 +21,7 @@ async function index(req, res) {
 async function create(req, res) {
   try {
     // 1. Create a student in the database (the data will be incoming via `req.body`)
+
     let student = await Student.create(req.body);
     // 2. use res.json() to send a response to the frontend
     if (student) {
