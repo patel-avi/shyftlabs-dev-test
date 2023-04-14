@@ -1,5 +1,5 @@
 export async function getCourses() {
-  return await fetch("/api").then((res) => res.json());
+  return await fetch("/api/courses").then((res) => res.json());
 }
 
 export async function createCourse(body) {

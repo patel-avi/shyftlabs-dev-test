@@ -73,12 +73,12 @@ async function handleSubmit(e) {
     <form>
         <div>
           <span>First name</span><br/>
-          <input name="firstName" type="text" value={firstName} onChange={handleChange} required />
+          <input name="firstName" type="text" value={firstName} autoComplete="off" onChange={handleChange} required />
         </div>
 
         <div>
           <span>Family name</span><br/>
-          <input name="familyName" type="text" value={familyName} onChange={handleChange} required />
+          <input name="familyName" type="text" value={familyName} autoComplete="off" onChange={handleChange} required />
         </div>
           
           <div>

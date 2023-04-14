@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import { getCourses, createCourse } from '../../utils/course';
 
 export default function CoursesPage() {
-    const [courses, setCourse] = useState("");
+    const [courseName, setCourseName] = useState([])
+    const [courses, setCourses] = useState("");
 
     useEffect(() => {
         getAll();
@@ -11,58 +12,60 @@ export default function CoursesPage() {
     
       async function getAll() {
         let coursesAll = await getCourses();
-        setCourse(coursesAll);
+        setCourses(coursesAll);
       }
     
       function handleChange(e) {
-        setCourse(e.target.value);
+        setCourseName(e.target.value);
       }
     
       async function handleSubmit(e) {
         e.preventDefault();
-        let course = course.trim();
-        await createCourse({ name: course }).then((err) => {
-          if (!err.name) {
-            alert("Course Added");
-          } else {
-            alert(`${err.name}: ${err.message}`);
+        let body = {
+            name: courseName
+        }
+        await createCourse(body).then((error) => {
+          if (error) {
+            alert("New course has been added");
           }
         });
-        setCourse("");
+        setCourseName("");
         getCourses();
       }
     
       return (
         <>
-          <h1>All Courses</h1>
+          <h1>Courses Page</h1>
           <hr />
           <form>
+            <div>
+            <span>Course name</span><br/>
             <input
-              type="text"
               name="name"
-              placeholder="Course Name"
-              value={courses}
+              type="text"
+              value={courseName}
               autoComplete="off"
               onChange={handleChange}
             />
+            </div>
             <button onClick={handleSubmit}>Submit</button>
           </form>
           <hr />
-          <div>
+          <div className="Course">
             <table>
               <thead>
                 <tr>
-                  <th>Courses</th>
+                  <th>Course Name</th>
                 </tr>
               </thead>
               <tbody>
-                {courses.map((c) => {
+                {/* {courses.map((c) => {
                   return (
                     <tr key={c._id}>
                       <td>{c.name}</td>
                     </tr>
                   );
-                })}
+                })} */}
               </tbody>
             </table>
           </div>
