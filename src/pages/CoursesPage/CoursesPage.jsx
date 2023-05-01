@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { getCourses, createCourse } from '../../utils/course';
 
 export default function CoursesPage() {
-    const [courseName, setCourseName] = useState([])
+    const [courseName, setCourseName] = useState("")
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
@@ -26,9 +26,9 @@ export default function CoursesPage() {
         }
         await createCourse(body).then(() => {
           alert("New course has been added");
-        });
-        setCourseName("");
-        getCourses();
+          setCourseName("")
+          getAll()
+        })
       }
     
       return (

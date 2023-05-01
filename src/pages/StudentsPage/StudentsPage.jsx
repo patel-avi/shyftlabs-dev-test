@@ -56,7 +56,7 @@ async function handleSubmit(e) {
         setFirstName("")
         setFamilyName("")
         setDateOfBirth("")
-        getStudents()
+        getAll()
     })
       
     } else if (firstName && familyName && dateOfBirth && calculateAge(dateOfBirth) < 10) {
