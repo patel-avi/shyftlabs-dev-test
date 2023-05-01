@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-app.use("/api", require("./routes/students"));
+app.use("/api/students", require("./routes/students"));
+app.use("/api/courses", require("./routes/courses"));
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));

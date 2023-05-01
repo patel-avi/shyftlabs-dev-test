@@ -4,14 +4,14 @@ import { getCourses, createCourse } from '../../utils/course';
 
 export default function CoursesPage() {
     const [courseName, setCourseName] = useState([])
-    const [courses, setCourses] = useState("");
+    const [courses, setCourses] = useState([])
 
     useEffect(() => {
         getAll();
       }, []);
     
       async function getAll() {
-        let coursesAll = await getCourses();
+        const coursesAll = await getCourses();
         setCourses(coursesAll);
       }
     
@@ -59,13 +59,13 @@ export default function CoursesPage() {
                 </tr>
               </thead>
               <tbody>
-                {/* {courses.map((c) => {
+                {courses.map((c) => {
                   return (
                     <tr key={c._id}>
                       <td>{c.name}</td>
                     </tr>
                   );
-                })} */}
+                })}
               </tbody>
             </table>
           </div>

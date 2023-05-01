@@ -11,9 +11,11 @@ async function index(req, res) {
     let courses = await Course.find({});
     // 2. Use res.json() to send the posts to the frontend
     if (courses) {
+      console.log(courses);
       res.json(courses).status(200);
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 }
@@ -27,6 +29,7 @@ async function create(req, res) {
       res.status(200).json("ok");
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 }

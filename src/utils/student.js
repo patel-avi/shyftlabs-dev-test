@@ -1,5 +1,5 @@
 export async function getStudents() {
-  return await fetch("/api").then((res) => res.json());
+  return await fetch("/api/students").then((res) => res.json());
 }
 
 export async function createStudent(body) {
