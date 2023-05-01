@@ -8,6 +8,7 @@ import CoursesPage from "./pages/CoursesPage/CoursesPage";
 import { getStudents } from "./utils/student";
 
 import "./App.css";
+import ResultsPage from "./pages/ResultsPage/ResultsPage";
 
 function App() {
   return (
@@ -22,9 +23,11 @@ function App() {
             <NavLink className="nav-link" to="/students">
               Students Page
             </NavLink>
-
             <NavLink className="nav-link" to="/courses">
               Courses Page
+            </NavLink>
+            <NavLink className="nav-link" to="/results">
+              Results Page
             </NavLink>
           </div>
         </div>
@@ -33,6 +36,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/students" element={<StudentsPage />} />
             <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/results" element={<ResultsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
