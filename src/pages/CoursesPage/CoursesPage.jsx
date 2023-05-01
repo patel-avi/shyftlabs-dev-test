@@ -5,6 +5,7 @@ import { getCourses, createCourse } from '../../utils/course';
 export default function CoursesPage() {
     const [courseName, setCourseName] = useState("")
     const [courses, setCourses] = useState([])
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         getAll();
@@ -21,16 +22,20 @@ export default function CoursesPage() {
     
       async function handleSubmit(e) {
         e.preventDefault();
-        let body = {
+        if (courseName.length === 0) {
+          setError(true)
+        } else {
+          let body = {
             name: courseName
+          }
+          await createCourse(body).then(() => {
+            alert("New course has been added");
+            setCourseName("")
+            getAll()
+          })
         }
-        await createCourse(body).then(() => {
-          alert("New course has been added");
-          setCourseName("")
-          getAll()
-        })
       }
-    
+        
       return (
         <>
           <h1>Courses Page</h1>
@@ -44,8 +49,12 @@ export default function CoursesPage() {
               value={courseName}
               autoComplete="off"
               onChange={handleChange}
+              required
             />
             </div>
+            {error ?
+          <label>Course name is required</label> : ""}
+          <br/>
             <button onClick={handleSubmit}>Submit</button>
           </form>
           <hr />
