@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getStudents, createStudent } from '../../utils/student';
-import { NavLink } from "react-router-dom";
 
 import './StudentsPage.css'
 
@@ -70,6 +69,7 @@ async function handleSubmit(e) {
     return(
         <>
         <h1>Students Page</h1>
+        <hr />
     <form>
         <div>
           <span>First name</span><br/>

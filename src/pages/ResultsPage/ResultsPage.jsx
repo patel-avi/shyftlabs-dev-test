@@ -66,9 +66,15 @@ export default function ResultsPage() {
                 setStudentName("")
                 setScore("")
                 getAll()
-                })
+            })
         }
     }
+
+    // const resetValue = () => {
+    //     setCourseName({courseName:""})
+    //     setStudentName("")
+    //             setScore("")
+    //   };
      
 
 
@@ -79,8 +85,8 @@ export default function ResultsPage() {
         <form>
             <div>
             <span>Course name</span><br/>
-            <select name="courseName" className="dropdown" onChange={handleChange}>
-                <option disabled selected value="none">Select a course</option>
+            <select value={courseName} name="courseName" className="dropdown" onChange={handleChange}>
+                <option disabled selected value="">Select a course</option>
                 {courses.map((c) => 
                 <option value={c.name}>{c.name}</option>
                 )}
@@ -89,8 +95,8 @@ export default function ResultsPage() {
 
             <div>
             <span>Student name</span><br/>
-            <select name="studentName" className="dropdown" onChange={handleChange}>
-                <option disabled selected value="none">Select a student</option>
+            <select value={studentName} name="studentName" className="dropdown" onChange={handleChange}>
+                <option disabled selected value="">Select a student</option>
                 {students.map((s) => 
                 <option value={`${s.firstName} ${s.familyName}`}>{s.firstName} {s.familyName}</option>
                 )}
@@ -99,8 +105,8 @@ export default function ResultsPage() {
             
             <div>
             <span>Score</span><br/>
-            <select name="score" className="dropdown" onChange={handleChange}>
-            <option disabled selected value="none">Select a score</option>
+            <select value={score} name="score" className="dropdown" onChange={handleChange}>
+            <option disabled selected value="">Select a score</option>
                 <option value='A'>A</option>
                 <option value='B'>B</option>
                 <option value='C'>C</option>
