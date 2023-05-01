@@ -24,10 +24,8 @@ export default function CoursesPage() {
         let body = {
             name: courseName
         }
-        await createCourse(body).then((error) => {
-          if (error) {
-            alert("New course has been added");
-          }
+        await createCourse(body).then(() => {
+          alert("New course has been added");
         });
         setCourseName("");
         getCourses();

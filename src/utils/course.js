@@ -8,5 +8,5 @@ export async function createCourse(body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   };
-  return await fetch("/api", options).then((res) => res.json());
+  return await fetch("/api/courses", options).then((res) => res.json());
 }
