@@ -10,7 +10,7 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://shyftlabs-dev-test.netlify.app/",
+    origin: "https://shyftlabs-dev-test-kc8t.onrender.com",
   })
 );
 
