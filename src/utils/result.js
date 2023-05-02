@@ -1,5 +1,7 @@
 export async function getResults() {
-  return await fetch("/api/results").then((res) => res.json());
+  return await fetch(
+    "https://shyftlabs-dev-test-api.onrender.com/api/results"
+  ).then((res) => res.json());
 }
 
 export async function createResult(body) {
@@ -8,5 +10,8 @@ export async function createResult(body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   };
-  return await fetch("/api/results", options).then((res) => res.json());
+  return await fetch(
+    "https://shyftlabs-dev-test-api.onrender.com/api/results",
+    options
+  ).then((res) => res.json());
 }

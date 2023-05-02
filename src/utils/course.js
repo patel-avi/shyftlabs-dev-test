@@ -1,5 +1,7 @@
 export async function getCourses() {
-  return await fetch("/api/courses").then((res) => res.json());
+  return await fetch(
+    "https://shyftlabs-dev-test-api.onrender.com/api/courses"
+  ).then((res) => res.json());
 }
 
 export async function createCourse(body) {
@@ -8,5 +10,8 @@ export async function createCourse(body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   };
-  return await fetch("/api/courses", options).then((res) => res.json());
+  return await fetch(
+    "/https://shyftlabs-dev-test-api.onrender.comapi/courses",
+    options
+  ).then((res) => res.json());
 }

@@ -2,12 +2,12 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const cors = require("cors");
 
 require("dotenv").config();
 require("./config/database");
 
 const app = express();
-app.set("trust proxy", 1);
 app.use(
   cors({
     origin: "https://shyftlabs-dev-test-kc8t.onrender.com",

@@ -1,5 +1,7 @@
 export async function getStudents() {
-  return await fetch("/api/students").then((res) => res.json());
+  return await fetch(
+    "https://shyftlabs-dev-test-api.onrender.com/api/students"
+  ).then((res) => res.json());
 }
 
 export async function createStudent(body) {
@@ -8,5 +10,8 @@ export async function createStudent(body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   };
-  return await fetch("/api/students", options).then((res) => res.json());
+  return await fetch(
+    "https://shyftlabs-dev-test-api.onrender.com/api/students",
+    options
+  ).then((res) => res.json());
 }
