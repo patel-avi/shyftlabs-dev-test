@@ -7,6 +7,12 @@ require("dotenv").config();
 require("./config/database");
 
 const app = express();
+app.set("trust proxy", 1);
+app.use(
+  cors({
+    origin: "https://shyftlabs-dev-test.netlify.app/",
+  })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
