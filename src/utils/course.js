@@ -11,7 +11,7 @@ export async function createCourse(body) {
     body: JSON.stringify(body),
   };
   return await fetch(
-    "/https://shyftlabs-dev-test-api.onrender.comapi/courses",
+    "/https://shyftlabs-dev-test-api.onrender.com/api/courses",
     options
   ).then((res) => res.json());
 }
