@@ -10,7 +10,7 @@ require("./config/database");
 const app = express();
 app.use(
   cors({
-    origin: "https://shyftlabs-dev-test-kc8t.onrender.com",
+    origin: "https://shyftlabs-dev-test.netlify.app",
   })
 );
 
