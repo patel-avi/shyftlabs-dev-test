@@ -18,12 +18,12 @@ export default function ResultsPage() {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
-        getAll();
+        getAllResults();
         getAllCourses();
         getAllStudents();
     }, []);
 
-    async function getAll() {
+    async function getAllResults() {
         const resultsAll = await getResults();
         setResults(resultsAll)
     }
@@ -48,34 +48,38 @@ export default function ResultsPage() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        if (courseName === 'none' || studentName === 
-        'none' || score === 'none') {
-            setError(true)
-        } else {
-
-            let body = {
-                courseName: courseName,
-                studentName: studentName,
-                score: score,
-            }
-            console.log(e)
-            await createResult(body).then((error) => {
-                console.log(error)
-                alert("New result has been added")
-                setCourseName("")
-                setStudentName("")
-                setScore("")
-                getAll()
-            })
-        }
-    }
-
-    // const resetValue = () => {
-    //     setCourseName({courseName:""})
-    //     setStudentName("")
-    //             setScore("")
-    //   };
-     
+        if (courseName.length === 0 || studentName.length === 
+            0 || score.length === 0) {
+                setError(true)
+            } else {
+                setError(false)
+                for (let r=0; r < results.length; r++) {
+                    console.log(results[r])
+                    console.log(courseName)
+                    if (results[r]['courseName'] === courseName && results[r]['studentName'] === studentName) {
+                        alert("A result for selected course and student already exists")
+                        setCourseName("")
+                        setStudentName("")
+                        setScore("")
+                        return
+                    } 
+                }
+                let body = {
+                    courseName: courseName,
+                                studentName: studentName,
+                                score: score,
+                            }
+                            await createResult(body).then((error) => { 
+                                alert("New result has been added")
+                                setCourseName("")
+                                setStudentName("")
+                                setScore("")
+                                getAllResults()
+                            })
+                        
+                }
+            } 
+    
 
 
   return (
